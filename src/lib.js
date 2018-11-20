@@ -15,5 +15,15 @@ const filter = function(functionCallback,elements) {
   }
   return result;
 }
+
+const reduce = function(functionCallback,elements,accumulator = elements[0]) { 
+  let result = accumulator;
+  for(let index = 1; index<elements.length; index++) {
+    result = functionCallback(result,elements[index]);
+  }
+  return result;
+}
+
+exports.reduce = reduce;
 exports.filter = filter;
 exports.map = map;

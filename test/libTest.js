@@ -23,8 +23,12 @@ const greaterThan = function(element) {
   return element>10;
 }
 
-const greatestNumber = function() { 
-  
+const sumOfAllElements = function(element1,element2) { 
+  return element1 + element2 ;
+}
+
+const max = function(element1,element2) { 
+  return Math.max(element1,element2);
 }
 /*------------------------- TestFunction ---------------------*/
 
@@ -66,6 +70,35 @@ const testFilter = function() {
   test(lib.filter,inputs,expectedOutput);
 }
 
+const testReduce = function() { 
+  inputs = [sumOfAllElements,[]];
+  expectedOutput = undefined;
+  test(lib.reduce,inputs,expectedOutput);
+
+  inputs = [max,[]];
+  expectedOutput = undefined;
+  test(lib.reduce,inputs,expectedOutput);
+
+  inputs = [max,[11]];
+  expectedOutput = 11;
+  test(lib.reduce,inputs,expectedOutput);
+
+  inputs = [sumOfAllElements,[1,2,30]];
+  expectedOutput = 33;
+  test(lib.reduce,inputs,expectedOutput);
+
+  inputs = [max,[1,2,4]];
+  expectedOutput = 4;
+  test(lib.reduce,inputs,expectedOutput);
+
+  inputs = [max,[-10,-11,2,3,60]];
+  expectedOutput = 60;
+  test(lib.reduce,inputs,expectedOutput);
+
+  inputs = [max,[undefined]];
+  expectedOutput = undefined;
+  test(lib.reduce,inputs,expectedOutput);
+}
 testMap();
 testFilter();
-
+testReduce();

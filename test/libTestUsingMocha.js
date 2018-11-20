@@ -23,6 +23,14 @@ const greaterThan = function(element) {
   return element>10;
 }
 
+const sumOfAllElements = function(element1,element2) { 
+  return element1 + element2 ;
+}
+
+const max = function(element1,element2) { 
+  return Math.max(element1,element2);
+}
+
 /*------------------------- Tests ---------------*/
 describe ("map",function() {
   it("should work for empty array",function(){
@@ -57,3 +65,23 @@ describe ("filter",function() {
   });
 });
 
+describe ("reduce",function() {
+  it("should work for empty array",function(){
+    assert.deepEqual(lib.reduce(sumOfAllElements,[]),undefined);
+    assert.deepEqual(lib.reduce(max,[]),undefined);
+  });
+  it("should work for one element array",function(){
+    assert.deepEqual(lib.reduce(max,[11]),11);
+  });
+  it("should work for more than one element",function(){
+    assert.deepEqual(lib.reduce(sumOfAllElements,[1,2,30]),33);
+    assert.deepEqual(lib.reduce(max,[1,2,4]),4);
+  });
+  it("should work for negative numbers",function(){
+    assert.deepEqual(lib.reduce(max,[-10,-11,2,3,60]),60);
+  });
+  it("should work for undefined ",function(){
+    assert.deepEqual(lib.reduce(max,[undefined]),undefined);
+    assert.deepEqual(lib.reduce(sumOfAllElements,[undefined]),undefined);
+  });
+});
