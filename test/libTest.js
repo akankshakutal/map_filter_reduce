@@ -24,7 +24,7 @@ const greaterThan = function(element) {
 
 /*------------------------- TestFunction ---------------------*/
 
-const testFunction = function(functionName,inputs,expectedOutput) { 
+const test = function(functionName,inputs,expectedOutput) { 
   let actualOutput = functionName(inputs[0],inputs[1]);
   assert.deepEqual(actualOutput,expectedOutput);
 }
@@ -33,21 +33,29 @@ const testFunction = function(functionName,inputs,expectedOutput) {
 
 let inputs = [square,[]];
 let expectedOutput = [];
-testFunction(lib.map,inputs,expectedOutput);
+test(lib.map,inputs,expectedOutput);
 
 inputs = [square,[2]];
 expectedOutput = [4];
-testFunction(lib.map,inputs,expectedOutput);
+test(lib.map,inputs,expectedOutput);
 
 inputs = [cube,[1,2,3]];
 expectedOutput = [1,8,27];
-testFunction(lib.map,inputs,expectedOutput);
+test(lib.map,inputs,expectedOutput);
 
 inputs = [increment,[-4,-5,-6]];
 expectedOutput = [-3,-4,-5];
-testFunction(lib.map,inputs,expectedOutput);
+test(lib.map,inputs,expectedOutput);
 
 inputs = [isEven,[]];
 expectedOutput = [];
-testFunction(lib.filter,inputs,expectedOutput);
+test(lib.filter,inputs,expectedOutput);
+
+inputs = [greaterThan,[1,2,3,11]];
+expectedOutput = [11];
+test(lib.filter,inputs,expectedOutput);
+
+inputs = [greaterThan,[-10,-11,2,3,60]];
+expectedOutput = [60];
+test(lib.filter,inputs,expectedOutput);
 
