@@ -14,6 +14,14 @@ const increment = function(element) {
   return element+1;
 }
 
+const isEven = function(element) { 
+  return (element%2 == 0)
+}
+
+const greaterThan = function(element) { 
+  return element>10;
+}
+
 /*------------------------- TestFunction ---------------------*/
 
 const testFunction = function(functionName,inputs,expectedOutput) { 
@@ -38,3 +46,8 @@ testFunction(lib.map,inputs,expectedOutput);
 inputs = [increment,[-4,-5,-6]];
 expectedOutput = [-3,-4,-5];
 testFunction(lib.map,inputs,expectedOutput);
+
+inputs = [isEven,[]];
+expectedOutput = [];
+testFunction(lib.filter,inputs,expectedOutput);
+
