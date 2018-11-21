@@ -34,7 +34,7 @@ const max = function(element1,element2) {
 /*------------------------- Tests ---------------*/
 describe ("map",function() {
   it("should work for empty array",function(){
-    assert.deepEqual(lib.map(square,[]),[]);
+    assert.deepEqual(lib.map(increment,[1]),[2]);
   });
   it("should work for one element array",function(){
     assert.deepEqual(lib.map(square,[1]),[1]);
@@ -75,7 +75,7 @@ describe ("reduce",function() {
   });
   it("should work for more than one element",function(){
     assert.deepEqual(lib.reduce(sumOfAllElements,[1,2,30]),33);
-    assert.deepEqual(lib.reduce(max,[1,2,4]),4);
+    assert.deepEqual(lib.reduce(max,[4,2,1],2),4);
   });
   it("should work for negative numbers",function(){
     assert.deepEqual(lib.reduce(max,[-10,-11,2,3,60]),60);

@@ -1,25 +1,30 @@
-const map  = function(functionCallback,elements) {
+const map  = function(mapper,elements) {
   let result = [];
   for(element of elements) {
-    result.push(functionCallback(element));
+    result.push(mapper(element));
   }
   return result;
 }
 
-const filter = function(functionCallback,elements) { 
+const filter = function(predicate,elements) { 
   let result = [];
   for(element of elements) {
-    if(functionCallback(element)) {
+    if(predicate(element)) {
       result.push(element);
     }
   }
   return result;
 }
 
-const reduce = function(functionCallback,elements,accumulator = elements[0]) { 
+const reduce = function(reducer,elements,accumulator) { 
+  let startingIndex = 0;
+  if(accumulator == undefined) {
+    startingIndex = 1;
+    accumulator = elements[0]
+  }
   let result = accumulator;
-  for(let index = 1; index<elements.length; index++) {
-    result = functionCallback(result,elements[index]);
+  for(let index = startingIndex; index<elements.length; index++) {
+    result = reducer(result,elements[index]);
   }
   return result;
 }
