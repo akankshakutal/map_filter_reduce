@@ -76,3 +76,17 @@ describe ("reduce",function() {
     assert.deepEqual(lib.reduce(max,[undefined]),undefined);
   });
 });
+
+describe ("map using Recursion",function() {
+  it("should return empty array for empty array",function(){
+    assert.deepEqual(lib.recursiveMap(increment,[]),[]);
+  });
+  it("should return one element array for one element array",function(){
+    assert.deepEqual(lib.recursiveMap(square,[1]),[1]);
+  });
+  it("should preserve the length of array of multiple elements",function(){
+    assert.deepEqual(lib.recursiveMap(square,[1,2,3]),[1,4,9]);
+    assert.deepEqual(lib.recursiveMap(cube,[1,2,3]),[1,8,27]);
+  });
+});
+

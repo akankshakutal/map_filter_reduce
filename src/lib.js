@@ -29,6 +29,15 @@ const reduce = function(reducer,elements,accumulator) {
   return result;
 }
 
+const recursiveMap = function(mapper,list,result=[]){
+  if(list.length == 0) {
+    return result;
+  }
+  result.push(mapper(list[0]));
+  return recursiveMap(mapper,list.slice(1),result);
+}
+
 exports.reduce = reduce;
 exports.filter = filter;
 exports.map = map;
+exports.recursiveMap = recursiveMap;
