@@ -37,7 +37,18 @@ const recursiveMap = function(mapper,list,result=[]){
   return recursiveMap(mapper,list.slice(1),result);
 }
 
+const recursiveFilter = function(predicate,list,result=[]){
+  if(list.length == 0){
+    return result;
+  }
+  if(predicate(list[0])){
+    result.push(list[0]);
+  }
+  return recursiveFilter(predicate,list.slice(1),result);
+}
+
 exports.reduce = reduce;
 exports.filter = filter;
 exports.map = map;
 exports.recursiveMap = recursiveMap;
+exports.recursiveFilter = recursiveFilter;
